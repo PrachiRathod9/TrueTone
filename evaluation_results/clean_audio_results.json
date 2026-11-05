@@ -1,0 +1,30 @@
+{
+  "category": "Clean Studio/Direct Synthetic & Human Audio",
+  "dataset_size": 2,
+  "class_distribution": {
+    "AI": 1,
+    "Human": 1
+  },
+  "supported_files": [
+    "human_voice.mpeg",
+    "TruetoneAivoice.mpeg"
+  ],
+  "unsupported_files": [
+    "aiclean_voice.aac (HTTP 400 format rejection)"
+  ],
+  "metrics": {
+    "threshold": 0.15,
+    "total_samples": 2,
+    "TP": 1,
+    "TN": 1,
+    "FP": 0,
+    "FN": 0,
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "specificity": 100.0,
+    "fpr": 0.0,
+    "f1_score": 100.0
+  },
+  "limitation_note": "Extremely small clean sample size (N=2 decodable: TruetoneAivoice.mpeg and human_voice.mpeg; 1 AAC rejected). Provides qualitative validation but cannot support statistically significant benchmark conclusions without larger independent test sets."
+}

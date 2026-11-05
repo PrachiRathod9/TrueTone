@@ -1,0 +1,36 @@
+{
+  "category": "Real-World Mobile / Speakerphone Recorded Audio",
+  "dataset_size": 11,
+  "class_distribution": {
+    "AI": 5,
+    "Human": 6
+  },
+  "supported_files": [
+    "ai_mic1.mpeg",
+    "ai_mic2.mpeg",
+    "ai_mic3.mpeg",
+    "ai_mic4.mpeg",
+    "ai_mic5.mpeg",
+    "human_mic1.mpeg",
+    "human_mic2.mpeg",
+    "human_mic3.mpeg",
+    "human_mic4.mpeg",
+    "human_mic4.ogg",
+    "human_mic5.mpeg"
+  ],
+  "metrics": {
+    "threshold": 0.15,
+    "total_samples": 11,
+    "TP": 1,
+    "TN": 5,
+    "FP": 1,
+    "FN": 4,
+    "accuracy": 54.55,
+    "precision": 50.0,
+    "recall": 20.0,
+    "specificity": 83.33,
+    "fpr": 16.67,
+    "f1_score": 28.57
+  },
+  "domain_shift_finding": "Shows pronounced domain shift: synthetic voice samples re-recorded through phone speaker and microphone (ai_mic1 to ai_mic4) exhibit attenuation of high-frequency synthesis vocoder artifacts, leading to higher False Negative Rate (FNR = 80%) under default 0.15 threshold unless lower sensitivity thresholds (e.g. 0.02) are utilized."
+}

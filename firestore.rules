@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. User Profiles
+    // Authenticated users can only read and write their own profile document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // 2. Scam Call Voice Analyses & Incident Records
+    // Each record is strictly scoped to the authenticated user's Firebase UID
+    match /analyses/{analysisId} {
+      // Allow reading only records belonging to the authenticated user
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      
+      // Allow creating an analysis only if authenticated and the record's userId matches auth.uid
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      
+      // Allow updating only if the existing and incoming records belong to auth.uid (e.g. marking as blocked)
+      allow update: if request.auth != null 
+                    && resource.data.userId == request.auth.uid 
+                    && request.resource.data.userId == request.auth.uid;
+                    
+      // Disallow client deletion of forensic call incident records
+      allow delete: if false;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "NOT_MEASURED_INSUFFICIENT_GROUND_TRUTH_LABELS",
+  "explanation": "Scam-risk assessment requires independent, trustworthy ground-truth labels for entire conversational interactions (e.g., confirmed fraudulent vishing call transcripts vs. confirmed legitimate conversations). In this codebase, the model performs acoustic voice classification. Stored historical database analyses (N=40 in truetone_store.json) contain user-submitted questionnaire responses and application-generated verdicts, but do NOT possess external ground-truth fraud labels. Generating accuracy or confusion matrices against self-generated verdicts would constitute tautological circular validation.",
+  "scoring_weights_verified": {
+    "acoustic_weight": 0.6,
+    "behavioral_weight": 0.4,
+    "behavior_flags": {
+      "askedForMoney": 35,
+      "askedForOtpOrPin": 40,
+      "createdUrgency": 25
+    },
+    "synthetic_voice_floor_rule": "If is_ai is True and combined_risk < 50, combined_risk is floored to max(50, round(avg_ai_prob * 100))",
+    "verdict_rule": "High Risk if is_ai is True or combined_risk >= 50; else Safe"
+  },
+  "required_for_future_evaluation": "A benchmark dataset of at least 100-500 transcribed audio interactions with verified ground-truth annotations: (1) authentic conversational scams, (2) synthetic voice scams, (3) benign AI synthetic calls (e.g. customer service bots), and (4) legitimate human personal/business calls."
+}

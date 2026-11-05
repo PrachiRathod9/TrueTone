@@ -1,0 +1,24 @@
+{
+  "evaluation_title": "TrueTone Chapter 5 Experimental Evaluation",
+  "evaluation_timestamp": "2026-10-21 12:57:52",
+  "model_checkpoint": "kathakundra/truetone-voice-model",
+  "model_base": "garystafford/wav2vec2-deepfake-voice-detector",
+  "architecture": "Wav2Vec2ForSequenceClassification (Wav2Vec2 Large, 24 layers, 1024 hidden dim)",
+  "model_size_bytes": 1262859296,
+  "sample_rate_hz": 16000,
+  "chunk_duration_seconds": 4.0,
+  "chunk_samples": 64000,
+  "decision_threshold": 0.15,
+  "class_mapping": {
+    "0": "real",
+    "1": "fake"
+  },
+  "positive_class": "AI / Fake (Index 1)",
+  "negative_class": "Human / Real (Index 0)",
+  "device": "cpu",
+  "total_files_scanned": 19,
+  "unique_hash_count": 15,
+  "deduplicated_eval_count": 15,
+  "valid_labeled_count": 13,
+  "unsupported_rejected_count": 1
+}

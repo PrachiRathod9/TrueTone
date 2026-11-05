@@ -1,0 +1,37 @@
+{
+  "model": "kathakundra/truetone-voice-model",
+  "threshold": 0.15,
+  "sample_count": 13,
+  "metrics": {
+    "threshold": 0.15,
+    "total_samples": 13,
+    "TP": 2,
+    "TN": 6,
+    "FP": 1,
+    "FN": 4,
+    "accuracy": 61.54,
+    "precision": 66.67,
+    "recall": 33.33,
+    "specificity": 85.71,
+    "fpr": 14.29,
+    "f1_score": 44.44
+  },
+  "per_class": {
+    "AI": {
+      "precision": 66.67,
+      "recall": 33.33,
+      "f1_score": 44.44,
+      "support": 6
+    },
+    "Human": {
+      "precision": 60.0,
+      "recall": 85.71,
+      "f1_score": 70.59,
+      "support": 7
+    }
+  },
+  "macro_avg": {
+    "accuracy": 61.54,
+    "support": 13
+  }
+}
